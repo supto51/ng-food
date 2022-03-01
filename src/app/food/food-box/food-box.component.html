@@ -1,0 +1,134 @@
+<section class="food-step-count-bar">
+  <article class="container">
+    <figure class="row">
+      <div class="col inner-wrap mb-hide">
+        <p class="preload-text">
+          🎁 Preload Dr Ryan Lowery’s menu!
+          <a href="choose-meals.html">Click here</a>
+        </p>
+      </div>
+      <div class="col inner-wrap btn" *ngIf="foodDiscount">
+        <div class="step-btn-group">
+          <div class="alrt-msg" *ngIf="totalAddedToBox == 1">
+            We give you the best value, and freshest food, by shipping
+            {{ foodDiscount.items_per_box }} items per box.
+          </div>
+          <div
+            class="alrt-msg"
+            *ngIf="totalAddedToBox == +foodDiscount.items_per_box + 1"
+          >
+            You're now filling up your 2nd box of
+            {{ foodDiscount.items_per_box }} items.
+          </div>
+
+          <a
+            [ngClass]="{
+              completed:
+                totalAddedToBox === +foodDiscount.items_per_box ||
+                totalAddedToBox === +foodDiscount.items_per_box * 2 ||
+                totalAddedToBox === +foodDiscount.items_per_box * 3 ||
+                totalAddedToBox === +foodDiscount.items_per_box * 4
+            }"
+            data-toggle="modal"
+            data-target="#BundleSummaryModal"
+            class="button button-primary count-btn"
+          >
+            <i class="fas fa-box"></i>
+            <span> {{ totalAddedToBox }} </span>/
+            <ng-container
+              *ngIf="totalAddedToBox <= +foodDiscount.items_per_box"
+            >
+              8
+            </ng-container>
+            <ng-container
+              *ngIf="
+                totalAddedToBox > +foodDiscount.items_per_box &&
+                totalAddedToBox <= +foodDiscount.items_per_box * 2
+              "
+            >
+              16
+            </ng-container>
+            <ng-container
+              *ngIf="
+                totalAddedToBox > +foodDiscount.items_per_box * 2 &&
+                totalAddedToBox <= +foodDiscount.items_per_box * 3
+              "
+            >
+              24
+            </ng-container>
+            <ng-container
+              *ngIf="
+                totalAddedToBox > +foodDiscount.items_per_box * 3 &&
+                totalAddedToBox <= +foodDiscount.items_per_box * 4
+              "
+            >
+              32
+            </ng-container>
+          </a>
+
+          <a
+            href="#"
+            class="button button-primary button-icon"
+            [ngClass]="{
+              disabled:
+                totalAddedToBox !== +foodDiscount.items_per_box &&
+                totalAddedToBox !== +foodDiscount.items_per_box * 2 &&
+                totalAddedToBox !== +foodDiscount.items_per_box * 3 &&
+                totalAddedToBox !== +foodDiscount.items_per_box * 4
+            }"
+          >
+            <ng-container *ngIf="totalAddedToBox < +foodDiscount.items_per_box">
+              Box 1 is not full
+            </ng-container>
+            <ng-container
+              *ngIf="
+                totalAddedToBox > +foodDiscount.items_per_box &&
+                totalAddedToBox < +foodDiscount.items_per_box * 2
+              "
+            >
+              Box 2 is not full
+            </ng-container>
+            <ng-container
+              *ngIf="
+                totalAddedToBox > +foodDiscount.items_per_box * 2 &&
+                totalAddedToBox < +foodDiscount.items_per_box * 3
+              "
+            >
+              Box 3 is not full
+            </ng-container>
+            <ng-container
+              *ngIf="
+                totalAddedToBox > +foodDiscount.items_per_box * 3 &&
+                totalAddedToBox < +foodDiscount.items_per_box * 4
+              "
+            >
+              Box 4 is not full
+            </ng-container>
+            <ng-container
+              *ngIf="
+                totalAddedToBox === +foodDiscount.items_per_box ||
+                totalAddedToBox === +foodDiscount.items_per_box * 2 ||
+                totalAddedToBox === +foodDiscount.items_per_box * 3 ||
+                totalAddedToBox === +foodDiscount.items_per_box * 4
+              "
+              >Add to cart (${{ subTotal }})
+            </ng-container>
+          </a>
+        </div>
+      </div>
+      <div class="col inner-wrap mb-show">
+        <p class="preload-text">
+          🎁 Preload Dr Ryan Lowery’s menu!
+          <a href="choose-meals.html">Click here</a>
+        </p>
+      </div>
+    </figure>
+  </article>
+</section>
+<!-- END of food-step-count-bar -->
+
+<app-selection-modal
+  [totalAddedToBox]="totalAddedToBox"
+  [foodDiscount]="foodDiscount"
+  [subTotal]="subTotal"
+></app-selection-modal>

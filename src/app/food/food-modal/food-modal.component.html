@@ -1,0 +1,164 @@
+<!-- food-details-modal -->
+<div
+  id="foodDetailsModal"
+  tabindex="-1"
+  role="dialog"
+  class="modal fade food-details-modal"
+  aria-modal="false"
+  *ngIf="foodDiscount"
+>
+  <div role="document" class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <button
+        type="button"
+        data-dismiss="modal"
+        aria-label="Close"
+        class="close"
+      >
+        <i class="far fa-times"></i>
+      </button>
+      <div class="modal-body">
+        <div
+          class="food-img-wrap"
+          [ngStyle]="{ backgroundImage: 'url(' + food.image_url + ')' }"
+        ></div>
+
+        <div class="food-bottom-text">
+          <p class="food-taq-btn text-center">
+            <a href="#" class="button" *ngFor="let diet of food.diet_types">
+              {{ getDietInfo(diet) }}
+            </a>
+          </p>
+          <h4 class="color-black text-center">{{ food.name }}</h4>
+          <p class="p-small color-gray text-center">
+            ${{ getPrice()?.mvproduct_price }}
+          </p>
+          <div class="btns-group">
+            <a
+              class="button button-primary button-large add-btn"
+              (click)="onIncrement()"
+              *ngIf="food.quantity <= 1"
+            >
+              <i class="far fa-plus" aria-hidden="true"></i> Add
+            </a>
+            <div
+              class="button button-primary button-large add-btn added"
+              *ngIf="food.quantity !== 0"
+            >
+              <a (click)="onDecrement()" style="cursor: pointer">
+                <i class="far fa-minus" aria-hidden="true"></i>
+              </a>
+              {{ food.quantity }} added
+              <a style="cursor: pointer" (click)="onIncrement()">
+                <i class="far fa-plus" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <ul class="supplement-facts" *ngIf="food.nutrition">
+            <li *ngFor="let nut of getNutri(food.nutrition)">
+              <span>{{ nut.unit_size }}</span>
+
+              {{ nut.name }}
+            </li>
+          </ul>
+
+          <p class="color-gray p-small text-center">
+            {{ food.description }}
+          </p>
+
+          <div class="accordion" id="accordion">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <button
+                  class="button"
+                  data-toggle="collapse"
+                  data-target="#ingredientsAccordion"
+                  aria-expanded="true"
+                  aria-controls="ingredientsAccordion"
+                >
+                  Ingredients
+                </button>
+              </div>
+
+              <div
+                id="ingredientsAccordion"
+                class="collapse show"
+                aria-labelledby="headingOne"
+                data-parent="#accordion"
+              >
+                <div class="card-body color-gray" *ngIf="food">
+                  <ol>
+                    <li *ngFor="let ing of food.ingredients">
+                      {{ ing }} <br />
+                      <br />
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <button
+                  class="button collapsed"
+                  data-toggle="collapse"
+                  data-target="#instructionsAccordion"
+                  aria-expanded="false"
+                  aria-controls="instructionsAccordion"
+                >
+                  Instructions
+                </button>
+              </div>
+              <div
+                id="instructionsAccordion"
+                class="collapse"
+                aria-labelledby="headingTwo"
+                data-parent="#accordion"
+              >
+                <div class="card-body color-gray">
+                  <ul>
+                    <li *ngFor="let ins of food.instructions">
+                      <h4>{{ ins.title }}</h4>
+                      <span *ngFor="let det of replaceInsNewLine(ins.details)">
+                        {{ det }} <br /><br />
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <button
+                  class="button collapsed"
+                  data-toggle="collapse"
+                  data-target="#nutritionAccordion"
+                  aria-expanded="false"
+                  aria-controls="nutritionAccordion"
+                >
+                  Nutrition per serving
+                </button>
+              </div>
+              <div
+                id="nutritionAccordion"
+                class="collapse"
+                aria-labelledby="headingThree"
+                data-parent="#accordion"
+              >
+                <div class="card-body color-gray">
+                  <span>
+                    {{ formatIns(food.nutrition) }}
+                    <br />
+                    <br />
+                    {{ food.nutrition_disclaimer }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END of food-details-modal -->

@@ -1,0 +1,40 @@
+.button-primary {
+  color: #fcfdff;
+  background-color: #2152ff;
+}
+
+.button-primary:hover {
+  background-color: #204ceb;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.btns-group {
+  margin: 18px 0 20px;
+  height: 48px;
+  position: relative;
+}
+
+.btns-group .add-btn.added a {
+  color: #fff;
+  position: absolute;
+  background: transparent;
+  width: 48px;
+  height: 48px;
+  top: 0;
+  line-height: 48px;
+  transition: background 0.3s ease-in-out;
+}
+
+.btns-group .add-btn.added a:hover,
+.btns-group .add-btn.added a:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.btns-group .add-btn.added a:first-child {
+  left: 0;
+}
+
+.btns-group .add-btn.added a:last-child {
+  right: 0;
+}

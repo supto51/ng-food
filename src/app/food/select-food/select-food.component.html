@@ -1,0 +1,76 @@
+<section class="food-experience">
+  <article class="container">
+    <div class="col-12 product-breadcrumbs">
+      <ul class="p-small">
+        <li>
+          <a class="color-gray" href="food-experience.html"
+            ><i class="fas fa-home-lg-alt" style="font-size: 12px"></i
+          ></a>
+        </li>
+        <span class="breadcrumb-greater-than">›</span>
+        <li>
+          <a class="color-gray" href="food-experience.html">Food delivery</a>
+        </li>
+      </ul>
+    </div>
+    <!-- END of product-breadcrumbs -->
+
+    <figure class="row text-center food-exp-banner slt-food">
+      <div class="col-sm-12">
+        <h1>Select food</h1>
+        <h4 class="date-text">
+          <i class="far fa-truck"></i>
+          {{ foods.food_discount_info?.next_shipping_date_str }}
+        </h4>
+        <p class="color-gray sub-text">
+          Make changes before
+          {{ foods.food_discount_info?.edit_by_date }}
+        </p>
+      </div>
+    </figure>
+    <!-- END of food-exp-banner -->
+
+    <figure class="row food-exp-body-wraper">
+      <div class="col-sm-12 filter-sort-bar">
+        <div class="filter-col">
+          <a
+            class="button button-primary active"
+            (click)="filterFood('ALL')"
+            [ngClass]="{ active: isSubCategory === 'ALL' }"
+            >All</a
+          >
+          <a
+            class="button button-primary"
+            (click)="filterFood('OVEN_READY')"
+            [ngClass]="{ active: isSubCategory === 'OVEN_READY' }"
+            >Meals</a
+          >
+          <a
+            class="button button-primary"
+            (click)="filterFood('SNACK_PACKS')"
+            [ngClass]="{ active: isSubCategory === 'SNACK_PACKS' }"
+            >Snacks</a
+          >
+        </div>
+
+        <div class="sort-col">
+          <span data-toggle="modal" data-target="#filterSortModal"
+            >Filter + Sort</span
+          >
+        </div>
+      </div>
+
+      <div
+        class="col-md-4 col-6 food-exp-item"
+        *ngFor="let food of foods.items"
+      >
+        <app-food-card [food]="food" [newItems]="newItems"></app-food-card>
+      </div>
+    </figure>
+    <!-- END of food-exp-body-wraper -->
+  </article>
+</section>
+<!-- END of food-experience -->
+
+<app-food-box *ngIf="foods.items"></app-food-box>
+<!-- <app-food-sort-modal></app-food-sort-modal> -->

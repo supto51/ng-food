@@ -1,0 +1,301 @@
+<main [ngStyle]="{ marginTop: height + 'px' }">
+  <section class="foodLand-banner">
+    <article class="container">
+      <figure class="row">
+        <div class="col-sm-12">
+          <h1 class="title color-white text-center">
+            Better meals and snacks, <span>Now delivered.</span>
+          </h1>
+          <p class="healthy-text text-center">
+            Healthy, delicious, Prüvit approved meals made with farm-fresh
+            ingredients, ready in 5 minutes or less.
+          </p>
+
+          <div class="explore-the-menu-wrap">
+            <a
+              class="button button-primary button-large"
+              routerLink="/select-food"
+            >
+              Explore the menu
+            </a>
+            <p class="text-center">
+              <a href="#"
+                ><i class="fas fa-map-marker-alt"></i> Check your zip code</a
+              >
+            </p>
+          </div>
+        </div>
+      </figure>
+    </article>
+  </section>
+  <!-- END of foodLand-banner -->
+
+  <section class="foodLand-how-it">
+    <article class="container">
+      <figure class="row">
+        <div class="col-sm-12">
+          <h2 class="title color-white text-center">How it works</h2>
+
+          <div class="row how-it-row">
+            <div class="col">
+              <div class="card text-center">
+                <div id="shopingIcon" class="animated-icon">
+                  <lottie-player
+                    autoplay
+                    mode="normal"
+                    src="assets/animation/shop_icon.json"
+                  >
+                  </lottie-player>
+                </div>
+                <p class="color-black">Choose your meals and snacks</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card text-center">
+                <div id="deliverIcon" class="animated-icon">
+                  <lottie-player
+                    autoplay
+                    mode="normal"
+                    src="assets/animation/delivery.json"
+                  >
+                  </lottie-player>
+                </div>
+                <p class="color-black">We deliver fresh each week</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card text-center">
+                <div id="5minsIcon" class="animated-icon">
+                  <lottie-player
+                    autoplay
+                    mode="normal"
+                    src="assets/animation/Microwave2.json"
+                  >
+                  </lottie-player>
+                </div>
+                <p class="color-black">Meals ready in 5 minutes or less</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card text-center">
+                <div id="pauseIcon" class="animated-icon">
+                  <lottie-player
+                    autoplay
+                    mode="normal"
+                    src="assets/animation/pause.json"
+                  >
+                  </lottie-player>
+                </div>
+                <p class="color-black">Skip or cancel anytime</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </figure>
+    </article>
+  </section>
+  <!-- END of foodLand-how-it -->
+
+  <section class="foodLand-ultimate">
+    <article class="container">
+      <figure class="row">
+        <div class="col-sm-12 text-center">
+          <div class="ultimate-title m-auto">
+            <h1>The ultimate time hack</h1>
+            <h3 class="color-gray">
+              The average person spends ~1,140 hours per year devoted to
+              preparing, cooking, and eating.
+            </h3>
+            <h3 class="color-black">
+              How will you spend the time you save with our ready-to-eat snacks
+              and quick-heat meals?
+            </h3>
+          </div>
+        </div>
+      </figure>
+    </article>
+  </section>
+  <!-- END of foodLand-ultimate- -->
+
+  <section class="foodLand-ultimate-slider">
+    <article class="container-fluid">
+      <figure class="ultimate-marquee-slide">
+        <div class="slider-item">
+          <div
+            class="inner"
+            style="background-image: url(assets/images/ultimate-slider.png)"
+          ></div>
+        </div>
+
+        <div class="slider-item">
+          <div
+            class="inner"
+            style="background-image: url(assets/images/ultimate-slider1.png)"
+          ></div>
+        </div>
+
+        <div class="slider-item">
+          <div
+            class="inner"
+            style="background-image: url(assets/images/ultimate-slider2.png)"
+          ></div>
+        </div>
+
+        <div class="slider-item">
+          <div
+            class="inner"
+            style="background-image: url(assets/images/ultimate-slider3.png)"
+          ></div>
+        </div>
+
+        <div class="slider-item">
+          <div
+            class="inner"
+            style="background-image: url(assets/images/ultimate-slider4.png)"
+          ></div>
+        </div>
+      </figure>
+    </article>
+  </section>
+  <!-- END pf foodLand-ultimate-slider -->
+
+  <section class="foodLand-info">
+    <article class="container">
+      <figure class="row">
+        <div class="col-12">
+          <div class="info-card box-shadow">
+            <h2 class="title">
+              <span> Healthy, simple and tasty.</span> That’s the kind of
+              problem that Prüvit likes to solve.
+            </h2>
+            <div class="founder">
+              <h4>Brian Underwood</h4>
+              <p class="color-gray">Prüvit Co-founder & CEO</p>
+              <img
+                src="assets/images/brain.png"
+                alt="img"
+                class="img-fluid founder-img"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="info-card bg-green">
+            <ul class="info-list">
+              <li class="info-item">Tastes amazing</li>
+              <li class="info-item">Clean, high quality ingredients</li>
+              <li class="info-item">Zero preparation time</li>
+              <li class="info-item">Prüvit community approved</li>
+            </ul>
+            <div class="invite">
+              <h2>Now we invite you to experience the difference.</h2>
+              <div class="link">
+                <a routerLink="/select-food">
+                  Browse food
+                  <i class="far fa-long-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="approved">
+            <div class="approved-inner">
+              <div class="approved-card">
+                <div class="icon">⚡️</div>
+                <div class="info text-right">
+                  <p>CALORIES</p>
+                  <h3>350-550</h3>
+                </div>
+              </div>
+              <div class="approved-card">
+                <div class="icon">⚖️</div>
+                <div class="info text-right">
+                  <p>NET CARBS</p>
+                  <h3>&lt;15g</h3>
+                </div>
+              </div>
+              <div class="approved-card">
+                <div class="icon">💪</div>
+                <div class="info text-right">
+                  <p>PROTEIN</p>
+                  <h3>20g+</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="approved-info">
+              <h2>Prüvit approved macros, ready to eat or heat.</h2>
+              <p class="color-gray">
+                Take the guess work out of your daily food habits. Dr Ryan
+                Lowery and the culinary team have crafted unique meals and
+                snacks that pair perfectly with your pursuit of Better.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 best-in-class">
+          <div class="best-slide">
+            <p>Another Prüvit first</p>
+
+            <h1>
+              Best-in-class
+              <br />
+              <span
+                class="txt-rotate"
+                data-period="2000"
+                data-rotate='[ "ketones", "food", "community"]'
+              >
+              </span>
+            </h1>
+          </div>
+        </div>
+      </figure>
+    </article>
+  </section>
+  <!-- END of foodLand-info -->
+
+  <section class="foodLand-hungry">
+    <section class="foodLand-collection food-experience">
+      <figure class="food-exp-body-wraper ultimate-marquee-slide">
+        <div class="food-exp-item" *ngFor="let food of foods">
+          <app-food-card [food]="food" [isLandingPage]="true"></app-food-card>
+        </div>
+      </figure>
+    </section>
+    <!-- END of foodLand-collection -->
+    <article class="container">
+      <figure class="row">
+        <div class="col-sm-5 m-auto text-center">
+          <div class="hungry-inner">
+            <h1>Hungry yet?</h1>
+            <p>
+              Find out if we can deliver our healthy, simple, and delicious
+              meals and snacks to your doorstep.
+            </p>
+
+            <div class="explore-the-menu-wrap">
+              <a
+                class="button button-primary button-large"
+                routerLink="/select-food"
+              >
+                Explore the menu
+              </a>
+              <p class="text-center">
+                <a href="#"
+                  ><i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                  Check your zip code</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </figure>
+    </article>
+  </section>
+  <!-- END of foodLand-hungry -->
+</main>
+<!-- END of main -->

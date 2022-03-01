@@ -1,0 +1,56 @@
+<div class="card">
+  <div
+    class="top-img"
+    data-toggle="modal"
+    data-target="#foodDetailsModal"
+    (click)="onTempToModal(tempFood)"
+  >
+    <div
+      class="food-img"
+      [ngStyle]="{ backgroundImage: 'url(' + food.image_url + ')' }"
+    >
+      <div class="view-details" *ngIf="!isLandingPage">
+        <button class="btn btn-outline-light">View Details</button>
+      </div>
+    </div>
+    <span class="newTaq" *ngIf="newItems.includes(food.id)">New</span>
+  </div>
+  <div class="bottom-text text-center">
+    <p class="food-taq-btn">
+      <a
+        class="button"
+        *ngFor="let diet of food.diet_types"
+        data-toggle="tooltip"
+        title="{{ getDietName(diet) }}"
+        data-placement="top"
+        data-template="<div class='tooltip' role='tooltip'><div class='arrow top'></div><div class='pulse-credit tooltip-inner'></div></div>"
+      >
+        {{ getDietInfo(diet) }}
+      </a>
+    </p>
+    <h4 class="color-black">{{ food.name }}</h4>
+    <p class="p-small color-gray" *ngIf="!isLandingPage">
+      ${{ getPrice()?.mvproduct_price }}
+    </p>
+    <div class="btns-group" *ngIf="!isLandingPage">
+      <a
+        class="button button-primary button-large add-btn"
+        (click)="onAddFood()"
+        *ngIf="tempFood.quantity <= 1"
+        ><i class="far fa-plus"></i> Add</a
+      >
+      <div
+        class="button button-primary button-large add-btn added"
+        *ngIf="tempFood.quantity !== 0"
+      >
+        <a (click)="onDecrement()" style="cursor: pointer">
+          <i class="far fa-minus"></i>
+        </a>
+        {{ tempFood.quantity }} added
+        <a (click)="onIncrement()" style="cursor: pointer">
+          <i class="far fa-plus"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,196 @@
+<div
+  id="BundleSummaryModal"
+  class="modal fade filter-sort-modal bundle-summary show"
+>
+  <div role="document" class="modal-dialog">
+    <div class="modal-content">
+      <button type="button" data-dismiss="modal" class="close">
+        <i class="far fa-times"></i>
+      </button>
+      <div class="modal-body">
+        <p class="text-center icon">
+          <i class="fa fa-shopping-basket"></i>
+        </p>
+        <h4 class="filter-title text-center">Your selections</h4>
+        <p class="date-text text-center p-small">
+          <i class="far fa-truck color-gray"></i>
+          {{ foodDiscount.next_shipping_date_str2 }}
+        </p>
+
+        <p class="p-small share-clear-bar">
+          <a href="#" class="share-btn"
+            ><i class="fas fa-share"></i> Share selections</a
+          >
+          <a
+            style="cursor: pointer"
+            (click)="emptySelection()"
+            class="clear-btn"
+            >Clear all</a
+          >
+        </p>
+
+        <ul class="food-bundle">
+          <li class="card" *ngFor="let food of Foods">
+            <div
+              class="col img-box"
+              [style]="{
+                backgroundImage: 'url(' + food.image_url + ')'
+              }"
+              style="background-image: url(images/food-menu-img1.png)"
+            ></div>
+            <div class="col right-cont">
+              <div class="row">
+                <div class="col">
+                  <h4>{{ food.name }}</h4>
+                  <p>${{ food.mvproduct_price }}</p>
+                </div>
+
+                <div class="col plus-min">
+                  <a style="cursor: pointer" (click)="onIncrement(food)"
+                    ><i class="fas fa-plus-circle"></i
+                  ></a>
+                  <a style="cursor: pointer" (click)="onDecrement(food)"
+                    ><i class="fas fa-minus-circle"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="card empty">
+            <div class="col img-box"></div>
+            <div class="col right-cont">Item #7</div>
+          </li>
+
+          <li class="card sub-total text-right">
+            <div class="col">Sub total</div>
+            <div class="col right-cont">${{ subTotal }}</div>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <div class="food-step-count-bar">
+          <article class="container">
+            <figure class="row">
+              <div class="col-12 inner-wrap" *ngIf="foodDiscount">
+                <div class="step-btn-group">
+                  <div class="alrt-msg" *ngIf="totalAddedToBox == 1">
+                    We give you the best value, and freshest food, by shipping
+                    {{ foodDiscount.items_per_box }} items per box.
+                  </div>
+                  <div
+                    class="alrt-msg"
+                    *ngIf="totalAddedToBox == +foodDiscount.items_per_box + 1"
+                  >
+                    You're now filling up your 2nd box of
+                    {{ foodDiscount.items_per_box }} items.
+                  </div>
+                  <a
+                    [ngClass]="{
+                      completed:
+                        totalAddedToBox === +foodDiscount.items_per_box ||
+                        totalAddedToBox === +foodDiscount.items_per_box * 2 ||
+                        totalAddedToBox === +foodDiscount.items_per_box * 3 ||
+                        totalAddedToBox === +foodDiscount.items_per_box * 4
+                    }"
+                    data-toggle="modal"
+                    data-target="#BundleSummaryModal"
+                    class="button button-primary count-btn"
+                  >
+                    <i class="fas fa-box"></i>
+                    <span> {{ totalAddedToBox }} </span>/
+                    <ng-container
+                      *ngIf="totalAddedToBox <= +foodDiscount.items_per_box"
+                    >
+                      8
+                    </ng-container>
+                    <ng-container
+                      *ngIf="
+                        totalAddedToBox > +foodDiscount.items_per_box &&
+                        totalAddedToBox <= +foodDiscount.items_per_box * 2
+                      "
+                    >
+                      16
+                    </ng-container>
+                    <ng-container
+                      *ngIf="
+                        totalAddedToBox > +foodDiscount.items_per_box * 2 &&
+                        totalAddedToBox <= +foodDiscount.items_per_box * 3
+                      "
+                    >
+                      24
+                    </ng-container>
+                    <ng-container
+                      *ngIf="
+                        totalAddedToBox > +foodDiscount.items_per_box * 3 &&
+                        totalAddedToBox <= +foodDiscount.items_per_box * 4
+                      "
+                    >
+                      32
+                    </ng-container>
+                  </a>
+                  <a
+                    href="#"
+                    class="button button-primary button-icon"
+                    [ngClass]="{
+                      disabled:
+                        totalAddedToBox !== +foodDiscount.items_per_box &&
+                        totalAddedToBox !== +foodDiscount.items_per_box * 2 &&
+                        totalAddedToBox !== +foodDiscount.items_per_box * 3 &&
+                        totalAddedToBox !== +foodDiscount.items_per_box * 4
+                    }"
+                  >
+                    <ng-container
+                      *ngIf="totalAddedToBox < +foodDiscount.items_per_box"
+                    >
+                      Box 1 is not full
+                    </ng-container>
+                    <ng-container
+                      *ngIf="
+                        totalAddedToBox > +foodDiscount.items_per_box &&
+                        totalAddedToBox < +foodDiscount.items_per_box * 2
+                      "
+                    >
+                      Box 2 is not full
+                    </ng-container>
+                    <ng-container
+                      *ngIf="
+                        totalAddedToBox > +foodDiscount.items_per_box * 2 &&
+                        totalAddedToBox < +foodDiscount.items_per_box * 3
+                      "
+                    >
+                      Box 3 is not full
+                    </ng-container>
+                    <ng-container
+                      *ngIf="
+                        totalAddedToBox > +foodDiscount.items_per_box * 3 &&
+                        totalAddedToBox < +foodDiscount.items_per_box * 4
+                      "
+                    >
+                      Box 4 is not full
+                    </ng-container>
+                    <ng-container
+                      *ngIf="
+                        totalAddedToBox === +foodDiscount.items_per_box ||
+                        totalAddedToBox === +foodDiscount.items_per_box * 2 ||
+                        totalAddedToBox === +foodDiscount.items_per_box * 3 ||
+                        totalAddedToBox === +foodDiscount.items_per_box * 4
+                      "
+                      >Add to cart (${{ subTotal }})
+                    </ng-container>
+                  </a>
+                </div>
+              </div>
+              <div class="col-12 inner-wrap">
+                <p class="preload-text text-center">
+                  🚨 Save up to <span class="orng">$0.50/item</span> by adding 8
+                  more items
+                </p>
+              </div>
+            </figure>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

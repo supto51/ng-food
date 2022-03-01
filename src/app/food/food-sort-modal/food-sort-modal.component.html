@@ -1,0 +1,127 @@
+<div
+  id="filterSortModal"
+  tabindex="-1"
+  role="dialog"
+  class="modal fade filter-sort-modal"
+  aria-modal="false"
+>
+  <div role="document" class="modal-dialog">
+    <div class="modal-content">
+      <button
+        type="button"
+        data-dismiss="modal"
+        aria-label="Close"
+        class="close"
+      >
+        <i class="far fa-times"></i>
+      </button>
+      <div class="modal-body">
+        <h4 class="filter-title">Filter + Sort</h4>
+
+        <figure class="filter-group">
+          <h6 class="sub-title">Diet</h6>
+          <label class="custom-checkbox form-control"
+            >Gluten Free
+            <input type="checkbox" value="diet_1" name="diet" checked />
+            <span class="checkmark-box"></span>
+          </label>
+          <label class="custom-checkbox form-control"
+            >Low Carb
+            <input type="checkbox" value="diet_2" name="diet" />
+            <span class="checkmark-box"></span>
+          </label>
+          <label class="custom-checkbox form-control"
+            >Plant Based
+            <input type="checkbox" value="diet_3" name="diet" />
+            <span class="checkmark-box"></span>
+          </label>
+          <label class="custom-checkbox form-control"
+            >Dairy Free
+            <input type="checkbox" value="diet_4" name="diet" />
+            <span class="checkmark-box"></span>
+          </label>
+        </figure>
+
+        <figure class="filter-group">
+          <h6 class="sub-title">Categories</h6>
+          <label class="custom-radio form-control"
+            >Full menu
+            <input
+              type="radio"
+              value="categories_1"
+              name="categories"
+              checked
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="custom-radio form-control"
+            >Protein Power
+            <input type="radio" value="categories_2" name="categories" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="custom-radio form-control"
+            >Brian’s Favorites
+            <input type="radio" value="categories_3" name="categories" />
+            <span class="checkmark"></span>
+          </label>
+        </figure>
+
+        <figure class="filter-group">
+          <h6 class="sub-title">Sort by</h6>
+          <label class="custom-radio form-control"
+            >Default
+            <input type="radio" value="sortby_1" name="Sortby" checked />
+            <span class="checkmark"></span>
+          </label>
+          <label class="custom-radio form-control"
+            >Calories
+            <input type="radio" value="sortby_2" name="Sortby" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="custom-radio form-control"
+            >Carbs
+            <input type="radio" value="sortby_3" name="Sortby" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="custom-radio form-control"
+            >Total Fat
+            <input type="radio" value="sortby_4" name="Sortby" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="custom-radio form-control"
+            >Protein
+            <input type="radio" value="sortby_5" name="Sortby" />
+            <span class="checkmark"></span>
+          </label>
+        </figure>
+      </div>
+      <div class="modal-footer">
+        <div class="button-bar">
+          <a href="#" class="button button-primary reset mx-3">Reset</a>
+          <a href="#" class="button button-primary button-icons mx-3">
+            Apply
+            <svg
+              width="16"
+              height="12"
+              viewBox="0 0 16 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M10.2205 7.39182L0 7.39182L1.78416e-07 5.79182L10.2205 5.79182V7.39182Z"
+                fill="white"
+              />
+              <path
+                d="M15.8627 6.50001L9.11267 12.1292V0.87085L15.8627 6.50001Z"
+                fill="white"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END of filter-sort-modal -->
